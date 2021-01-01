@@ -1,0 +1,23 @@
+{
+  "name": "de.hsht.pvgsbot.restapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.hsht.de/HannesHil/PVGSRestAPI"
+  },
+  "dependencies": {
+    "hafas-client" : "latest",
+    "express" : "latest",
+    "querystring": "latest",
+    "body-parser": "latest",
+    "url": "latest"
+  },
+  "author": "Hannes Hilbert",
+  "license": "MIT"
+}
+
