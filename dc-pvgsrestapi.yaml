@@ -1,0 +1,25 @@
+version: '3'
+
+networks:
+  traefik-net:
+    external: true
+
+services:
+
+  #----------------------------------------------------------------
+  # REST API with traefic labels - https and IP-whitelist
+  #----------------------------------------------------------------
+
+  pvgsrest:
+    build: .
+    image: hanneshil/pvgsrest
+    container_name: pvgsrest
+    networks:
+      - traefik-net
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.pvgsrest.rule=Host(`pvgsrest.hsht.de`)"
+      - "traefik.http.routers.pvgsrest.entrypoints=websecure"
+      - "traefik.http.routers.pvgsrest.tls.certresolver=hshtresolver"
+      - "traefik.http.routers.pvgsrest.middlewares=https-only,internip"
+      - "traefik.http.services.pvgsrest.loadbalancer.server.port=3000"
