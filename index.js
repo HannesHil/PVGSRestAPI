@@ -7,8 +7,8 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.listen(80, () => {
- console.log("Server running on port 80");
+app.listen(8080, () => {
+ console.log("Server running on port 8080");
 });
 
 app.get("/departures", (req, res, next) => {
