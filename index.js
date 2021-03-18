@@ -7,8 +7,8 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.listen(3000, () => {
- console.log("Server running on port 3000");
+app.listen(80, () => {
+ console.log("Server running on port 80");
 });
 
 app.get("/departures", (req, res, next) => {
@@ -17,3 +17,8 @@ app.get("/departures", (req, res, next) => {
   const client = createClient(vbbProfile, 'my-awesome-program')
   client.departures(req.query.stopID, {duration: req.query.duration}).then(function(stop){res.json(stop);}).catch(console.error)
 });
+
+app.get("/", (req, res, next) => {
+  res.send( "Hello caller!" );
+});
+
